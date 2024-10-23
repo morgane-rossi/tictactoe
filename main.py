@@ -24,7 +24,7 @@
 resultat = "None"
 symbole = "O"
 tour = 0
-grille = [["O","01","02"],["O","11","O"],["02","O","O"]]
+grille = [["O","X","X"],["O","X","O"],["X","O","O"]]
 
 
 def verifVainqueur(grille):
@@ -59,9 +59,20 @@ def verifVainqueur(grille):
     if tour == 8:
         return "Egalité!"
 
-print(verifVainqueur(grille))
-
 #[Jeremy] Afficher la grille
+
+#Le modulos préviennent de creer des traits verticaux supplémentaires après les lignes (il n'en crée pas aprñs index 2, 5 etc)
+#PAreil pour le dernier if qui évite un trait horizontal en trop
+#La fonction print directement, il suffit de l'appeler pour afficher affichageGrille(grille)
+
+def affichageGrille(grille):
+    for x in range(len(grille)):
+        for y in range(len(grille[x])):
+            print(grille[x][y], end = "")
+            if y % 3 != 2:
+                print(" | ", end = "")
+        if x != len(grille) - 1:
+            print("\n----------")
 
 
 
