@@ -1,0 +1,41 @@
+Coeur
+
+Morgane 1. Démarrer le jeu/boucle infini tant que le jeu tourne
+        while jeupasfini = True...
+
+Morgane 2. Grille
+        List 1D, (list 1.5), List 2D
+
+Moussa        3. Ajouter/saisir des joueurs
+        Input, etc
+        X, O
+
+Jeremy  4. Vérification de fin de partie
+        Victoire,  défaite (3 symbole consécutif)
+                patternes (ex: 0,1,2), etc
+        nul (grille pleine, nb. tour)
+
+Jeremy 5. Afficher la grille
+        Print, etc
+        Afficher qui a gagné/perdu ou égalité
+
+
+"Polisage"  (bug fix)
+
+interdire valeurs interdite
+???
+
+
+Fonctionnalité additionnelles
+
+Personalisation (Nom des joueurs, choix des symboles etc)
+
+Score/stats
+
+Menu Pause -> Bouton Quitter 
+        (Break)
+
+Menu principal
+        Nouvelle partie
+        Stats (joueur 1/2)
+        Quitter
