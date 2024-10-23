@@ -6,7 +6,7 @@ Morgane 1. Démarrer le jeu/boucle infini tant que le jeu tourne
 Morgane 2. Grille
         List 1D, (list 1.5), List 2D
 
-Moussa        3. Ajouter/saisir des joueurs
+Moussa  3. Ajouter/saisir des joueurs
         Input, etc
         X, O
 
