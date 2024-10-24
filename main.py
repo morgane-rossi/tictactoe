@@ -25,3 +25,23 @@ if resultat == "Egalité!":
     print(f"\nC'est une égalité!")
 else:
     print(f"\nBravo {joueurs[joueurActuel][0]}, vous avez Gagné!")
+
+# noms des joueurs(Moussa) 
+def nomJoueurs():
+    nombre_joueurs = int(input("Combien de joueurs ? "))
+    joueurs = []
+    for i in range(nombre_joueurs):
+        nom = input(f"Entrez le nom du joueur {i+1} : ")
+        symbole = input(f"Rentrez un symbole: ")
+        joueurs.append([nom, symbole])
+    return joueurs
+
+def tourSuivant(joueurs, joueur_actuel):
+    global tour
+    tour += 1
+    # Index du joueur en cours
+    joueur_actuel = (joueur_actuel + 1) % len(joueurs)  # Passer au joueur suivant
+
+    print(f"\nC'est au tour de {joueurs[joueur_actuel][0]} de jouer.")
+    return joueur_actuel
+   
