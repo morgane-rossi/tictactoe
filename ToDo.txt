@@ -23,23 +23,19 @@ Coeur
 
 #Jeremy       faire plusieurs fichiers (permet de travailler dans notre propre branche)
 
+#Jeremy       snake_case
+
 Moussa      interdire valeurs interdite
                 ex: lettre au lieu de nombre
+
+Morgane         empecher le joueur d'écrire sur une case occupé
                 grille input (que des nombres, de 1 à 9)
 
-
-Morgane       empecher le joueur d'écrire sur une case occupé
-
-Jeremy       snake_case
-
-?       restraindre les valeurs de:
+?               restraindre les valeurs de:
                 symbole (1 caractere max)
                 ajouter commentaires (qui explique le code)
 
-
-
-?       Séparer par fonctions
-
+?               Séparer par fonctions
 
 Fonctionnalité additionnelles
 
@@ -52,7 +48,6 @@ Morgane                         Symboles par défaut
                                 static
                                 generated
                         couleur/police/image...
-
 
 ?       Score/stats
 

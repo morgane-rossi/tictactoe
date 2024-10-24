@@ -2,7 +2,6 @@ import main
 
 #[Jeremy] Vérification de fin de partie
 
-#valeur temporaire pour faire des tests. A effacer une fois créer ailleurs
 #resultat: pour connaitre l'issue de la partie. On peut afficher un message personalisé avec des valeurs différentes (while resultat == "Aucun" (ou "Partie en cours"))
 
 def verifVainqueur(grille):
@@ -12,18 +11,18 @@ def verifVainqueur(grille):
     [[0,0],[1,0],[2,0]],[[0,1],[1,1],[2,1]],[[0,2],[1,2],[2,2]],
     [[0,0],[1,1],[2,2]],[[2,0],[1,1],[0,2]]]
     
-    valeurTeste = []
+    valeur_teste = []
 
     #Ajoutes toutes les coordonnes des cases contenant le symbole du joueur et les met dans une liste (valeurTeste)
     for x in range(len(grille)):
-        valeurTeste += [[x, y] for y in range(len(grille[x])) if grille[x][y] == main.joueurs[main.joueurActuel][1]]
+        valeur_teste += [[x, y] for y in range(len(grille[x])) if grille[x][y] == main.joueurs[main.joueur_actuel][1]]
 
     #Vérifie les cases gagnantes avec les positions déjà existantes du symbole qui a été joué
     #Code en commentaire pour retourner la valeur des cases gagnantes au lieu de "Gagné" (pour les éclairer par exemple)
     for x in range(len(solutions)):
         #caseGagnantes = []
         compteur = 0
-        for y in valeurTeste:
+        for y in valeur_teste:
             for z in solutions[x]:
                 if z == y:
                     #caseGagnantes += [z] 
