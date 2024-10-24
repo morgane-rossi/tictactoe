@@ -4,4 +4,4 @@ Ecole la Plateforme du numérique - Marseille
 
 
 ##Credits
-Réalisé par Morganne R, Moussa C. et Jeremy G.
+Réalisé par Morgane R., Moussa C. et Jeremy G.
