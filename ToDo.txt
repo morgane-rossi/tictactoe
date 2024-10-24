@@ -28,6 +28,8 @@ restraindre les valeurs de:
         grille input (que des nombres, de 1 à 9)
         ajouter commentaires (qui explique le code)
 faire plusieurs fichiers (permet de travailler dans notre propre branche)
+snake_case
+Séparer par fonctions
 
 
 Fonctionnalité additionnelles
