@@ -33,9 +33,9 @@ Morgane       empecher le joueur d'écrire sur une case occupé
                 symbole (1 caractñre max)
                 ajouter commentaires (qui explique le code)
 
-?       faire plusieurs fichiers (permet de travailler dans notre propre branche)
+#Jeremy       faire plusieurs fichiers (permet de travailler dans notre propre branche)
 
-?       snake_case
+Jeremy       snake_case
 
 ?       Séparer par fonctions
 
