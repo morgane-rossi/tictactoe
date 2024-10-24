@@ -23,6 +23,7 @@ Jeremy 5. Afficher la grille
 "Polisage"  (bug fix)
 
 interdire valeurs interdite
+empecher le joueur d'écrire sur une case occupé
 restraindre les valeurs de:
         symbole (1 caractñre max)
         grille input (que des nombres, de 1 à 9)

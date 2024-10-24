@@ -27,7 +27,6 @@ def tourSuivant(joueurs, joueur_actuel):
     return joueur_actuel
 
 def choixCase():
-    print(tour)
     if tour == 1:
         affichageGrille([[[1],[2],[3]], [[4],[5],[6]], [[7],[8],[9]]])
     choix = input('\nChoissisez une case: ')
@@ -87,7 +86,7 @@ def affichageGrille(grille):
         if x != len(grille) - 1:
             print("\n----------")
 
-#[Morgane] Intro du jeu
+#[Jeremy] Intro du jeu
 
 print("Bienvenue au Morpion!")
 
