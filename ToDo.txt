@@ -1,7 +1,7 @@
 Coeur
 
 Morgane 1. Démarrer le jeu/boucle infini tant que le jeu tourne
-        while jeupasfini = True...
+        while jeupasfini = True... 
 
 Morgane 2. Grille
         List 1D, (list 1.5), List 2D
