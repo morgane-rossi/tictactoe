@@ -44,7 +44,14 @@ Fonctionnalité additionnelles
 
         Personalisation
 #Moussa         Nom des joueurs
-#Jeremy         choix des symboles
+#Jeremy         Affichage (Modifiable dans Options)
+                        choix des symboles
+                                Symboles par défaut                
+                        algo
+                                static
+                                generated
+                        couleur/police/image...
+
 
 ?       Score/stats
 
@@ -54,4 +61,5 @@ Fonctionnalité additionnelles
 ?       Menu principal
                 Nouvelle partie
                 Stats (joueur 1/2)
+                Options
                 Quitter
