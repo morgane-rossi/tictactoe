@@ -1,9 +1,5 @@
-#[Morgane] Intro du jeu
-
-
-
-
 #[Morgane] Grille
+#Grille en 3x3, 2d (liste dans liste)
 def newGrille() :
     grille = [None] * 3
     for i in range(3):
@@ -11,44 +7,36 @@ def newGrille() :
 
     return grille
 
-
-
 #[Moussa] Ajouter/saisir des joueurs
-def demarrer_partie():
+def nomJoueurs():
     nombre_joueurs = int(input("Combien de joueurs ? "))
     joueurs = []
     for i in range(nombre_joueurs):
         nom = input(f"Entrez le nom du joueur {i+1} : ")
-        joueurs.append(nom)
+        symbole = input(f"Rentrez un symbole: ")
+        joueurs.append([nom, symbole])
+    return joueurs
 
-    
+def tourSuivant(joueurs, joueur_actuel):
+    global tour
+    tour += 1
+    # Index du joueur en cours
+    joueur_actuel = (joueur_actuel + 1) % len(joueurs)  # Passer au joueur suivant
 
-    joueur_actuel=0  # Index du joueur en cours
-    tour+=1
-    print(f"C'est au tour de {joueurs[joueur_actuel]} de jouer.")
-    joueur_actuel = (joueur_actuel + 1) % nombre_joueurs  # Passer au joueur suivant
+    print(f"\nC'est au tour de {joueurs[joueur_actuel][0]} de jouer.")
     return joueur_actuel
-demarrer_partie()
 
-
-
-
-
-
+def choixCase():
+    print(tour)
+    if tour == 1:
+        affichageGrille([[[1],[2],[3]], [[4],[5],[6]], [[7],[8],[9]]])
+    choix = input('\nChoissisez une case: ')
+    return choix
 
 #[Jeremy] Vérification de fin de partie
 
 #valeur temporaire pour faire des tests. A effacer une fois créer ailleurs
 #resultat: pour connaitre l'issue de la partie. On peut afficher un message personalisé avec des valeurs différentes (while resultat == "Aucun" (ou "Partie en cours"))
-#resultat = verifVainqueur(grille)
-#Symbole est le symbole du joueur en cours. (choisi par le joueur ou par défaut). Si valeur non globale: def verifVainqueur(grille, symbole):
-#Tour/Coup = nb de tour/coup. si non globale:  def verifVainqueur(grille, symbole, tour):
-#Grille = Grille de valeur sus format 2d (liste dans liste) de dimension 3x3
-resultat = "None"
-symbole = "O"
-tour = 0
-grille = [["O","X","X"],["O","X","O"],["X","O","O"]]
-
 
 def verifVainqueur(grille):
  
@@ -61,7 +49,7 @@ def verifVainqueur(grille):
 
     #Ajoutes toutes les coordonnes des cases contenant le symbole du joueur et les met dans une liste (valeurTeste)
     for x in range(len(grille)):
-        valeurTeste += [[x, y] for y in range(len(grille[x])) if grille[x][y] == symbole]
+        valeurTeste += [[x, y] for y in range(len(grille[x])) if grille[x][y] == joueurs[joueurActuel][1]]
 
     #Vérifie les cases gagnantes avec les positions déjà existantes du symbole qui a été joué
     #Code en commentaire pour retourner la valeur des cases gagnantes au lieu de "Gagné" (pour les éclairer par exemple)
@@ -81,6 +69,8 @@ def verifVainqueur(grille):
     #Egalité si le nombre de coup = 9 (de 0 à 8) Se déclenche aprñs une vérification (peut gagner au dernier tour)
     if tour == 8:
         return "Egalité!"
+    else:
+        return "Aucun"
 
 #[Jeremy] Afficher la grille
 
@@ -97,7 +87,23 @@ def affichageGrille(grille):
         if x != len(grille) - 1:
             print("\n----------")
 
+#[Morgane] Intro du jeu
 
+print("Bienvenue au Morpion!")
 
+resultat = "Aucun"
+joueurs = nomJoueurs()
+joueurActuel = 1
+grille = newGrille()    
+tour = 0
 
-
+while resultat == "Aucun":
+    joueurActuel = tourSuivant(joueurs, joueurActuel)
+    choix = int(choixCase())
+    grille[(choix - 1) // 3][(choix - 1) % 3] = joueurs[joueurActuel][1]
+    resultat = verifVainqueur(grille)
+    affichageGrille(grille)
+if resultat == "Egalité!":
+    print(f"\nC'est une égalité!")
+else:
+    print(f"\nBravo {joueurs[joueurActuel][0]}, vous avez Gagné!")
