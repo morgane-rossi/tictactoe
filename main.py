@@ -9,12 +9,12 @@ def newGrille() :
 
 #[Moussa] Ajouter/saisir des joueurs
 def nomJoueurs():
-    nombre_joueurs = int(input("Combien de joueurs ? "))
+    nombre_joueurs = 2 #int(input("Combien de joueurs ? "))
     joueurs = []
     for i in range(nombre_joueurs):
         nom = input(f"Entrez le nom du joueur {i+1} : ")
-        symbole = input(f"Rentrez un symbole: ")
-        joueurs.append([nom, symbole])
+        symbole = ["O", "X"] #input(f"Rentrez un symbole: ")
+        joueurs.append([nom, symbole[i]])
     return joueurs
 
 def tourSuivant(joueurs, joueur_actuel):
@@ -28,7 +28,7 @@ def tourSuivant(joueurs, joueur_actuel):
 
 def choixCase():
     if tour == 1:
-        affichageGrille([[[1],[2],[3]], [[4],[5],[6]], [[7],[8],[9]]])
+        affichageGrille([[1,2,3], [4,5,6], [7,8,9]])
     choix = input('\nChoissisez une case: ')
     return choix
 
@@ -84,7 +84,8 @@ def affichageGrille(grille):
             if y % 3 != 2:
                 print(" | ", end = "")
         if x != len(grille) - 1:
-            print("\n----------")
+            print("")
+            print("---" * (len(grille)))
 
 #[Jeremy] Intro du jeu
 
