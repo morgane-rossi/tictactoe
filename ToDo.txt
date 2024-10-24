@@ -23,7 +23,11 @@ Jeremy 5. Afficher la grille
 "Polisage"  (bug fix)
 
 interdire valeurs interdite
-???
+restraindre les valeurs de:
+        symbole (1 caractñre max)
+        grille input (que des nombres, de 1 à 9)
+        ajouter commentaires (qui explique le code)
+faire plusieurs fichiers (permet de travailler dans notre propre branche)
 
 
 Fonctionnalité additionnelles
