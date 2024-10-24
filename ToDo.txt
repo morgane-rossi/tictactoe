@@ -1,48 +1,57 @@
 Coeur
 
-Morgane 1. Démarrer le jeu/boucle infini tant que le jeu tourne
+#Jeremy  1. Démarrer le jeu/boucle infini tant que le jeu tourne
         while jeupasfini = True... 
 
-Morgane 2. Grille
+#Morgane 2. Grille
         List 1D, (list 1.5), List 2D
 
-Moussa  3. Ajouter/saisir des joueurs
+#Moussa  3. Ajouter/saisir des joueurs
         Input, etc
         X, O
 
-Jeremy  4. Vérification de fin de partie
+#Jeremy  4. Vérification de fin de partie
         Victoire,  défaite (3 symbole consécutif)
                 patternes (ex: 0,1,2), etc
         nul (grille pleine, nb. tour)
 
-Jeremy 5. Afficher la grille
+#Jeremy  5. Afficher la grille
         Print, etc
         Afficher qui a gagné/perdu ou égalité
 
-
 "Polisage"  (bug fix)
 
-interdire valeurs interdite
-empecher le joueur d'écrire sur une case occupé
-restraindre les valeurs de:
-        symbole (1 caractñre max)
-        grille input (que des nombres, de 1 à 9)
-        ajouter commentaires (qui explique le code)
-faire plusieurs fichiers (permet de travailler dans notre propre branche)
-snake_case
-Séparer par fonctions
+?       interdire valeurs interdite
+                ex: lettre au lieu de nombre
+
+
+?       empecher le joueur d'écrire sur une case occupé
+
+
+?       restraindre les valeurs de:
+                symbole (1 caractñre max)
+                grille input (que des nombres, de 1 à 9)
+                ajouter commentaires (qui explique le code)
+
+?       faire plusieurs fichiers (permet de travailler dans notre propre branche)
+
+?       snake_case
+
+?       Séparer par fonctions
 
 
 Fonctionnalité additionnelles
 
-Personalisation (Nom des joueurs, choix des symboles etc)
+        Personalisation
+#Moussa         Nom des joueurs
+#Jeremy         choix des symboles
 
-Score/stats
+?       Score/stats
 
-Menu Pause -> Bouton Quitter 
-        (Break)
+?       Menu Pause -> Bouton Quitter 
+                (Break)
 
-Menu principal
-        Nouvelle partie
-        Stats (joueur 1/2)
-        Quitter
+?       Menu principal
+                Nouvelle partie
+                Stats (joueur 1/2)
+                Quitter
