@@ -21,6 +21,8 @@ Coeur
 
 "Polisage"  (bug fix)
 
+#Jeremy       faire plusieurs fichiers (permet de travailler dans notre propre branche)
+
 Moussa      interdire valeurs interdite
                 ex: lettre au lieu de nombre
                 grille input (que des nombres, de 1 à 9)
@@ -28,14 +30,13 @@ Moussa      interdire valeurs interdite
 
 Morgane       empecher le joueur d'écrire sur une case occupé
 
+Jeremy       snake_case
 
 ?       restraindre les valeurs de:
-                symbole (1 caractñre max)
+                symbole (1 caractere max)
                 ajouter commentaires (qui explique le code)
 
-#Jeremy       faire plusieurs fichiers (permet de travailler dans notre propre branche)
 
-Jeremy       snake_case
 
 ?       Séparer par fonctions
 
