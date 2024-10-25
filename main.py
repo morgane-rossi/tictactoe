@@ -264,6 +264,8 @@ def affichage_grille(grille):
 #[Jeremy] Intro du jeu
 #[choix // 3][choix % 3] convertit le nombre de la case choisi en coordonnée
 #ex: 1 // 3 = 0, 1 % 3 = 1 => 0, 1
+#[choix // 3][choix % 3] convertit le nombre de la case choisi en coordonnée
+#ex: 1 // 3 = 0, 1 % 3 = 1 => 0, 1
 
 print("Bienvenue au Morpion!")
 
