@@ -1,13 +1,5 @@
 #import time
-
-grille = [["X","O","O"],["","",""],["","",""]]
-signe = "X"
-
-
 def ia(grille, signe):
-        
-        
-        
         #time.sleep(3)
         
         #choisi une case dans l'ordre (la premiere qui est disponible)
@@ -22,6 +14,8 @@ def ia(grille, signe):
 
 #print(ia(grille, signe))
 
+"""
 test = [[0,0],[0,1],[0,2]]
 test.remove([0,0])
 print(test)
+"""
