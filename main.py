@@ -14,13 +14,17 @@ joueurs = joueurs_module.nomJoueurs()
 joueur_actuel = 1
 grille = grille_module.newGrille()    
 tour = 0
+print(f"joueurs : {joueurs}")
 
 while resultat == "Aucun":
-    joueur_actuel = tours_module.tour_suivant(joueurs, joueur_actuel)
-    tour += 1
-    choix = choix_module.choixCase(tour, grille)
-    grille[(choix - 1) // 3][(choix - 1) % 3] = joueurs[joueur_actuel][1]
-    resultat = verification_module.verifVainqueur(grille, tour, joueurs, joueur_actuel)
+    symbole = joueurs[joueurActuel][1]
+    joueurActuel = tour_module.tourSuivant(joueurs, joueurActuel, tour)
+    print(f"tour = {tour} - normalement fonction tourSuivant incrémente variable tour")
+    choix_module.choixCase(symbole, grille, tour)
+    print(f"symbole = {symbole}")
+#    grille[(choix - 1) // 3][(choix - 1) % 3] = joueurs[joueurActuel][1]
+# verifVainqueur(grille, tour, joueurs, joueur_actuel)
+    resultat = verification_module.verifVainqueur(grille, tour, joueurs, joueurActuel)
     affichage_module.affichageGrille(grille)
 
 
