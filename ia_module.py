@@ -11,7 +11,6 @@ def ia(grille, signe):
 
         return False
 
-
 #print(ia(grille, signe))
 
 """

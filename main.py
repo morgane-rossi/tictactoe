@@ -12,11 +12,12 @@ print("Bienvenue au Morpion!")
 #Variable Globale
 resultat = "Aucun"
 joueurs = joueurs_mod.nom_joueurs()
-joueur_actuel = 1   # Index du joueur en cours
+joueur_actuel = 1   # Détermine le joueur en cours (1er joueur = 0)
 grille = grille_mod.nouvelle_grille()    
 tour = 0
 
 while resultat == "Aucun":
+    #Premier tour, on affiche la grille avec les valeurs
     if tour == 0:
         affichage_mod.affichage_grille([[1,2,3], [4,5,6], [7,8,9]])
     joueur_actuel = tours_mod.tour_suivant(joueurs, joueur_actuel)
@@ -34,7 +35,7 @@ while resultat == "Aucun":
     resultat = verif_mod.verifVainqueur(grille, tour, joueurs, joueur_actuel)
    
     #affichage_mod.affichage_grille(grille)
-    affichage_mod.affichage_grille_tk(grille)
+    affichage_mod.affichage_grille_tk(grille, joueurs, joueur_actuel)
 
 
 if resultat == "Gagné!":
