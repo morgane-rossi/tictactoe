@@ -21,11 +21,13 @@ Coeur
 
 "Polisage"  (bug fix)
 
-#Jeremy       faire plusieurs fichiers (permet de travailler dans notre propre branche)
+#Jeremy         faire plusieurs fichiers (permet de travailler dans notre propre branche)
 
-#Jeremy       snake_case
+                snake_case
+                Séparer par fonctions
+                ajouter commentaires (qui explique le code)
 
-Moussa      interdire valeurs interdite
+Moussa          interdire valeurs interdite
                 ex: lettre au lieu de nombre
 
 Morgane         empecher le joueur d'écrire sur une case occupé
@@ -33,15 +35,13 @@ Morgane         empecher le joueur d'écrire sur une case occupé
 
 ?               restraindre les valeurs de:
                 symbole (1 caractere max)
-                ajouter commentaires (qui explique le code)
-
-?               Séparer par fonctions
+                convertit joueur(list) en dictionnaire    
 
 Fonctionnalité additionnelles
 
-        Personalisation
-#Moussa         Nom des joueurs
-#Jeremy         Affichage (Modifiable dans Options)
+                Personalisation
+#Moussa                 Nom des joueurs
+#Jeremy                 Affichage (Modifiable dans Options)
                         choix des symboles
 Morgane                         Symboles par défaut                
                         algo

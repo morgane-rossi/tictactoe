@@ -3,6 +3,6 @@
 def newGrille() :
     grille = [None] * 3
     for i in range(3):
-        grille[i] = ["-"] * 3
+        grille[i] = [""] * 3
 
     return grille
