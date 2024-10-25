@@ -1,6 +1,6 @@
 import grille_module
 import joueurs_module
-import tour_module
+import tours_module
 import choix_module
 import verification_module
 import affichage_module
@@ -16,12 +16,15 @@ grille = grille_module.newGrille()
 tour = 0
 
 while resultat == "Aucun":
-    joueur_actuel = tour_module.tourSuivant(joueurs, joueur_actuel)
-    choix = int(choix_module.choixCase())
+    joueur_actuel = tours_module.tour_suivant(joueurs, joueur_actuel)
+    tour += 1
+    choix = choix_module.choixCase(tour, grille)
     grille[(choix - 1) // 3][(choix - 1) % 3] = joueurs[joueur_actuel][1]
-    resultat = verification_module.verifVainqueur(grille)
+    resultat = verification_module.verifVainqueur(grille, tour, joueurs, joueur_actuel)
     affichage_module.affichageGrille(grille)
 if resultat == "Egalité!":
     print(f"\nC'est une égalité!")
-else:
+if resultat == "Gagné!":
     print(f"\nBravo {joueurs[joueur_actuel][0]}, vous avez Gagné!")
+else:
+    print("Error!!")
