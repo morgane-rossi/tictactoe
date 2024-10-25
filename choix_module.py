@@ -7,9 +7,7 @@ def choixCase(symbole, grille, tour):
     
 import ia_module
 
-def choixCase(tour, grille, joueurs, joueur_actuel):
-
-
+def choixCase(grille, joueurs, joueur_actuel):
     #Boucle pour demander l'input tant que le joueur ne choisi pas une case valide
     choix_valide = False
     while choix_valide == False:
