@@ -1,10 +1,10 @@
 Coeur
 
 #Jeremy  1. Démarrer le jeu/boucle infini tant que le jeu tourne
-        while jeupasfini = True... 
+        ex: while jeupasfini = True... 
 
 #Morgane 2. Grille
-        List 1D, (list 1.5), List 2D
+        List 2D
 
 #Moussa  3. Ajouter/saisir des joueurs
         Input, etc
@@ -21,7 +21,9 @@ Coeur
 
 "Polisage"  (bug fix)
 
-#Jeremy         faire plusieurs fichiers (permet de travailler dans notre propre branche)
+#Jeremy         faire plusieurs fichiers
+
+                faire branches perso
 
                 snake_case
                 Séparer par fonctions
@@ -30,7 +32,7 @@ Coeur
 Moussa          interdire valeurs interdite
                 ex: lettre au lieu de nombre
 
-Morgane         empecher le joueur d'écrire sur une case occupé
+#Morgane        empecher le joueur d'écrire sur une case occupé
                 grille input (que des nombres, de 1 à 9)
 
 ?               restraindre les valeurs de:
@@ -39,15 +41,13 @@ Morgane         empecher le joueur d'écrire sur une case occupé
 
 Fonctionnalité additionnelles
 
-                Personalisation
+Personalisation
 #Moussa                 Nom des joueurs
+
 #Jeremy                 Affichage (Modifiable dans Options)
                         choix des symboles
-Morgane                         Symboles par défaut                
-                        algo
-                                static
-                                generated
-                        couleur/police/image...
+                                Symboles par défaut                
+                     
 
 ?       Score/stats
 
