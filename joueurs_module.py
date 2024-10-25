@@ -1,5 +1,5 @@
 #[Moussa] Ajouter/saisir des joueurs
-def nomJoueurs():
+def nom_joueurs():
     est_valide = False
     while est_valide == False:
         nombre_joueurs = int(input("Combien de joueurs (1 ou 2) ? "))
