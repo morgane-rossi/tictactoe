@@ -13,7 +13,7 @@ def verifVainqueur(grille, tour, joueurs, joueur_actuel):
 
     #Ajoutes toutes les coordonnes des cases contenant le symbole du joueur et les met dans une liste (valeurTeste)
     for x in range(len(grille)):
-        valeurTeste += [[x, y] for y in range(len(grille[x])) if grille[x][y] == joueurs[joueur_actuel][1]]
+        valeur_teste += [[x, y] for y in range(len(grille[x])) if grille[x][y] == joueurs[joueur_actuel][1]]
 
     #Vérifie les cases gagnantes avec les positions déjà existantes du symbole qui a été joué
     #Code en commentaire pour retourner la valeur des cases gagnantes au lieu de "Gagné" (pour les éclairer par exemple)
