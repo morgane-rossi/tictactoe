@@ -18,8 +18,11 @@ grille = grille_module.newGrille()
 tour = 0
 
 while resultat == "Aucun":
+    if tour == 0:
+        affichage_module.affichageGrille([[1,2,3], [4,5,6], [7,8,9]])
     joueur_actuel = tours_module.tour_suivant(joueurs, joueur_actuel)
     tour += 1
+    #Affiche une grille de présentation des numéro de case le 1er tour
     choix = choix_module.choixCase(tour, grille, joueurs, joueur_actuel)
     if choix == False:
         print("Erreur de sélection de case du bot!")
