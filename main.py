@@ -19,14 +19,16 @@ tour = 0
 print(f"joueurs : {joueurs}")
 
 while resultat == "Aucun":
-    symbole = joueurs[joueurActuel][1]
-    joueurActuel = tour_module.tourSuivant(joueurs, joueurActuel, tour)
-    print(f"tour = {tour} - normalement fonction tourSuivant incrémente variable tour")
-    choix_module.choixCase(symbole, grille, tour)
-    print(f"symbole = {symbole}")
-#    grille[(choix - 1) // 3][(choix - 1) % 3] = joueurs[joueurActuel][1]
-# verifVainqueur(grille, tour, joueurs, joueur_actuel)
-    resultat = verification_module.verifVainqueur(grille, tour, joueurs, joueurActuel)
+    if tour == 0:
+        affichage_module.affichageGrille([[1,2,3], [4,5,6], [7,8,9]])
+    joueur_actuel = tours_module.tour_suivant(joueurs, joueur_actuel)
+    tour += 1
+    #Affiche une grille de présentation des numéro de case le 1er tour
+    choix = choix_module.choixCase(tour, grille, joueurs, joueur_actuel)
+    if choix == False:
+        print("Erreur de sélection de case du bot!")
+    grille[(choix - 1) // 3][(choix - 1) % 3] = joueurs[joueur_actuel][1]
+    resultat = verification_module.verifVainqueur(grille, tour, joueurs, joueur_actuel)
     affichage_module.affichageGrille(grille)
 
 
