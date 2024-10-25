@@ -2,7 +2,10 @@
 def affichageGrille(grille):
     for x in range(len(grille)):
         for y in range(len(grille[x])):
-            print(grille[x][y], end = "")
+            if not grille[x][y]:
+                print("-", end = "")
+            else:
+                print(grille[x][y], end = "")
             #Evite une ligne verticale en trop
             if y % 3 != 2:
                 print(" | ", end = "")
