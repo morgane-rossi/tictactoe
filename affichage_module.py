@@ -1,22 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 
-#[Jeremy] Afficher la grille
-def affichage_grille(grille):
-    for x in range(len(grille)):
-        for y in range(len(grille[x])):
-            if not grille[x][y]:
-                print("-", end = "")
-            else:
-                print(grille[x][y], end = "")
-            #Evite une ligne verticale en trop
-            if y % 3 != 2:
-                print(" | ", end = "")
-        #Evite une ligne horizontale en trop
-        if x != len(grille) - 1:
-            print("")
-            print("---" * (len(grille)))
-
 def affichage_grille_tk(grille, joueurs, joueur_actuel):
     fenetre = tk.Tk()
     fenetre.title("Morpion")
