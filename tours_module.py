@@ -1,4 +1,3 @@
-<<<<<<< HEAD:tours_module.py
 def tourSuivant(joueurs, joueur_actuel, tour):
     tour += 1
     # Index du joueur en cours
