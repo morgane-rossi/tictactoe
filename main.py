@@ -22,9 +22,11 @@ while resultat == "Aucun":
     grille[(choix - 1) // 3][(choix - 1) % 3] = joueurs[joueur_actuel][1]
     resultat = verification_module.verifVainqueur(grille, tour, joueurs, joueur_actuel)
     affichage_module.affichageGrille(grille)
-if resultat == "Egalité!":
-    print(f"\nC'est une égalité!")
+
+
 if resultat == "Gagné!":
     print(f"\nBravo {joueurs[joueur_actuel][0]}, vous avez Gagné!")
+elif resultat == "Egalité!":
+    print(f"\nC'est une égalité!")
 else:
-    print("Error!!")
+    print("Erreur!")
