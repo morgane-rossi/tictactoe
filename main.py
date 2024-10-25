@@ -131,6 +131,7 @@ joueurs = nom_joueurs()
 joueur_actuel = 1   # Détermine le joueur en cours (1er joueur = 0)
 grille = nouvelle_grille()    
 tour = 0
+print(f"joueurs : {joueurs}")
 
 while resultat == "Aucun":
     #Premier tour, on affiche la grille avec les valeurs
