@@ -1,4 +1,3 @@
-<<<<<<< HEAD:tours_module.py
 def tour_suivant(joueurs, joueur_actuel):
     joueur_actuel = (joueur_actuel + 1) % len(joueurs)  # Passer au joueur suivant
 
