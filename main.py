@@ -16,7 +16,6 @@ joueurs = joueurs_module.nomJoueurs()
 joueur_actuel = 1
 grille = grille_module.newGrille()    
 tour = 0
-print(f"joueurs : {joueurs}")
 
 while resultat == "Aucun":
     if tour == 0:
