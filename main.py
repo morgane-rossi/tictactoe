@@ -13,7 +13,7 @@ print("Bienvenue au Morpion!")
 
 resultat = "Aucun"
 joueurs = joueurs_module.nomJoueurs()
-joueur_actuel = 1
+joueur_actuel = 1   # Index du joueur en cours
 grille = grille_module.newGrille()    
 tour = 0
 
