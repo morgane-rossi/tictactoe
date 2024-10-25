@@ -23,7 +23,7 @@ while resultat == "Aucun":
     joueur_actuel = tours_module.tour_suivant(joueurs, joueur_actuel)
     tour += 1
     #Affiche une grille de présentation des numéro de case le 1er tour
-    choix = choix_module.choixCase(tour, grille, joueurs, joueur_actuel)
+    choix = choix_module.choixCase(grille, joueurs, joueur_actuel)
     if choix == False:
         print("Erreur de sélection de case du bot!")
     grille[(choix - 1) // 3][(choix - 1) % 3] = joueurs[joueur_actuel][1]
