@@ -36,37 +36,15 @@ def ia(grille, signe, difficulte):
     def choix_simple():
     #choisi une case dans l'ordre (la premiere qui est disponible)
         for case_choisi in range(9):
-            if not grille[case_choisi // 3][case_choisi % 3]:       
-                return case_choisi + 1
-            else:
-                continue
-        return False
+            if not grille[case_choisi // 3][case_choisi % 3]:       #convertit le nombre de la case en coordonnée
+                return case_choisi
+            elif case_choisi == 8:
+                return False
 
-    if difficulte == "Facile" or difficulte == "F" or difficulte == "f":
-        #Donne l'illusion de réfléchir
-        time.sleep(1)
-        return choix_simple()
-    
-    if difficulte == "WarGames" or difficulte == "W" or difficulte == "w":  #A strange game. The only winning move is not to play.
-        #Donne l'illusion de réfléchir
-        time.sleep(3)
-        if not grille[1][1]:    #Joue la case du centre quoi qu'il arrive si elle n'est pas occupé (forcément au tour 1)
-            return 5
-         #Empeche une solution pour gagner au tour 2
-        if grille == [["", "", "O"],["", "X", ""],["O", "", ""]] or grille == [["", "", "X"],["", "O", ""],["X", "", ""]]:
-            return 6
-        #Empeche une solution pour gagner au tour 2
-        if grille == [["O", "", ""],["", "X", ""],["", "", "X"]] or grille == [["X", "", ""],["", "O", ""],["", "", "O"]]:
-        #if grille == [[signe, "", ""],["", True, ""],["", "", True]]:
-            return 7
 
-    if difficulte == "Normal" or difficulte == "N" or difficulte == "n":
-        #Donne l'illusion de réfléchir
-        time.sleep(2)
 
-    case_choisi = choix_case_ia(coords_symbole_ia)
-    if case_choisi == None:
-        case_choisi = choix_case_ia(coords_symbole_joueur)
-        if case_choisi == None:
-            return choix_simple() 
-    return case_choisi
+#print(ia(grille, signe))
+
+test = [[0,0],[0,1],[0,2]]
+test.remove([0,0])
+print(test)
