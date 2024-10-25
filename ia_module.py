@@ -1,3 +1,5 @@
+#import time
+
 grille = [["X","O","O"],["","",""],["","",""]]
 signe = "X"
 
@@ -6,15 +8,16 @@ def ia(grille, signe):
         
         
         
+        #time.sleep(3)
         
-        
-        #choisi une case dans l'ordre (la premiñre qui est disponible)
+        #choisi une case dans l'ordre (la premiere qui est disponible)
         for case_choisi in range(9):
-            if not grille[case_choisi // 3][case_choisi % 3]:       #convertit le nombre de la case en coordonnée
-                return case_choisi
-            elif case_choisi == 8:
-                return False
+            if not grille[case_choisi // 3][case_choisi % 3]:       
+                return case_choisi + 1
+            else:
+                continue
 
+        return False
 
 
 #print(ia(grille, signe))

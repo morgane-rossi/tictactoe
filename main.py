@@ -6,6 +6,8 @@ import verification_module
 import affichage_module
 
 #[Jeremy] Intro du jeu
+#[choix // 3][choix % 3] convertit le nombre de la case choisi en coordonnée
+#ex: 1 // 3 = 0, 1 % 3 = 1 => 0, 1
 
 print("Bienvenue au Morpion!")
 
@@ -18,7 +20,9 @@ tour = 0
 while resultat == "Aucun":
     joueur_actuel = tours_module.tour_suivant(joueurs, joueur_actuel)
     tour += 1
-    choix = choix_module.choixCase(tour, grille)
+    choix = choix_module.choixCase(tour, grille, joueurs, joueur_actuel)
+    if choix == False:
+        print("Erreur de sélection de case du bot!")
     grille[(choix - 1) // 3][(choix - 1) % 3] = joueurs[joueur_actuel][1]
     resultat = verification_module.verifVainqueur(grille, tour, joueurs, joueur_actuel)
     affichage_module.affichageGrille(grille)
