@@ -8,7 +8,6 @@ import affichage_module
 #[Jeremy] Intro du jeu
 
 print("Bienvenue au Morpion!")
-
 resultat = "Aucun"
 joueurs = joueurs_module.nomJoueurs()
 joueurActuel = 1
@@ -44,4 +43,5 @@ def tourSuivant(joueurs, joueur_actuel):
 
     print(f"\nC'est au tour de {joueurs[joueur_actuel][0]} de jouer.")
     return joueur_actuel
+
    
