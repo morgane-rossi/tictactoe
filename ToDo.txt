@@ -35,8 +35,8 @@ Moussa          interdire valeurs interdite
 #Morgane        empecher le joueur d'écrire sur une case occupé
                 grille input (que des nombres, de 1 à 9)
 
-?               restraindre les valeurs de:
-                symbole (1 caractere max)
+                restraindre les valeurs de:
+#Jeremy         symbole (1 caractere max)
                 convertit joueur(list) en dictionnaire    
 
 Fonctionnalité additionnelles
