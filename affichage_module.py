@@ -1,3 +1,6 @@
+import tkinter as tk
+from tkinter import ttk
+
 #[Jeremy] Afficher la grille
 def affichageGrille(grille):
     for x in range(len(grille)):
@@ -13,3 +16,19 @@ def affichageGrille(grille):
         if x != len(grille) - 1:
             print("")
             print("---" * (len(grille)))
+
+fenetre = tk.Tk()
+fenetre.title("Morpion")
+fenetre.geometry("600x600")
+
+message = tk.Label(fenetre, text="Hey")
+message.pack()
+
+def button_clicked():
+    print('buttttton')
+
+bouton = ttk.Button(fenetre, text="clickk", command=button_clicked)
+bouton.pack()
+
+fenetre.mainloop()
+
