@@ -45,32 +45,16 @@ def ia(grille, signe, difficulte):
     if difficulte == "Facile" or difficulte == "F" or difficulte == "f":
         return choix_simple()
     
-    if difficulte == "WarGames" or difficulte == "W" or difficulte == "w":
+    if difficulte == "WarGames" or difficulte == "W" or difficulte == "w":  #A strange game. The only winning move is not to play.
         if not grille[1][1]:    #Joue la case du centre quoi qu'il arrive si elle n'est pas occupé (forcément au tour 1)
-            return 5            #A désactiver pour etre battable
-    
+            return 5            
+        if grille == [["O", "", ""],["", "X", ""],["", "", "X"]] or grille == [["X", "", ""],["", "O", ""],["", "", "O"]]:
+        #if grille[0][0] == signe and grille[] :
+            return 7
+
     case_choisi = choix_case_ia(coords_symbole_ia)
     if case_choisi == None:
         case_choisi = choix_case_ia(coords_symbole_joueur)
         if case_choisi == None:
             return choix_simple() 
     return case_choisi
-
-    
-    
-"""  
-    #fallback
-    if a == a:
-        pass
-"""
-
-
-
-#print(ia(grille, signe))
-
-
-"""
-test = [[0,0],[0,1],[0,2]]
-test.remove([0,0])
-print(test)
-"""
