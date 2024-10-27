@@ -51,7 +51,7 @@ def tour_suivant(joueurs, joueur_actuel):
     print(f"\n\nC'est au tour de {joueurs[joueur_actuel][0]} de jouer.")
     return joueur_actuel
 
-def choixCase(grille, joueurs, joueur_actuel):
+def choix_case(grille, joueurs, joueur_actuel):
     #Boucle pour demander l'input tant que le joueur ne choisi pas une case valide
     choix_valide = False
     while choix_valide == False:
@@ -71,7 +71,7 @@ def choixCase(grille, joueurs, joueur_actuel):
 
 #resultat: pour connaitre l'issue de la partie. On peut afficher un message personalisé avec des valeurs différentes (while resultat == "Aucun" (ou "Partie en cours"))
 
-def verifVainqueur(grille, tour, joueurs, joueur_actuel):
+def verif_vainqueur(grille, tour, joueurs, joueur_actuel):
  
     #1ème ligne: Vertical, 2ème ligne: Horizontal, 3ème ligne: Diagonal (haut-gauche à bas-droite), 4ème ligne: Diagonal(haut-droite à bas-gauche)
     solutions = [[[0,0],[0,1],[0,2]],[[1,0],[1,1],[1,2]],[[2,0],[2,1],[2,2]],
@@ -140,7 +140,7 @@ while resultat == "Aucun":
     tour += 1
 
     #Affiche une grille de présentation des numéro de case le 1er tour
-    choix = choixCase(grille, joueurs, joueur_actuel)
+    choix = choix_case(grille, joueurs, joueur_actuel)
     if choix == False:
         print("Erreur de sélection de case du bot!")
     
@@ -148,7 +148,7 @@ while resultat == "Aucun":
     #ex: 1 // 3 = 0, 1 % 3 = 1 => 0, 1
     grille[(choix - 1) // 3][(choix - 1) % 3] = joueurs[joueur_actuel][1]
    
-    resultat = verifVainqueur(grille, tour, joueurs, joueur_actuel)
+    resultat = verif_vainqueur(grille, tour, joueurs, joueur_actuel)
    
     affichage_grille(grille)
     #affichage_mod.affichage_grille_tk(grille, joueurs, joueur_actuel)
