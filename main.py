@@ -58,7 +58,7 @@ def choix_case(grille, joueurs, joueur_actuel):
     choix_valide = False
     while choix_valide == False:
         if joueurs[1][0] == "Bot" and joueur_actuel == 1:
-            return ia_mod.ia(grille, joueurs[1][1])
+            return ia_mod.ia(grille, joueurs[1][1], difficulte)
         else:
             choix = int(input('Choissisez une case: '))
         #Envoie une erreur si la case est invalide (non-occupé)
@@ -102,7 +102,7 @@ def verif_vainqueur(grille, tour, joueurs, joueur_actuel):
                     return "Gagné!"
 
     #Egalité si le nombre de coup = 9 (de 0 à 8) Se déclenche apres une vérification (peut gagner au dernier tour)
-    if tour == 8:
+    if tour == 9:
         return "Egalité!"
     else:
         return "Aucun"
@@ -132,6 +132,8 @@ print("Bienvenue au Morpion!")
 #Variable Globale
 resultat = "Aucun"
 joueurs = nom_joueurs()
+if joueurs[1][0] == "Bot":
+    difficulte = input("Choissisez la difficulté: (F)acile, [defaut](N)ormal, (W)arGames. -> ")
 joueur_actuel = 1   # Détermine le joueur en cours (1er joueur = 0)
 grille = nouvelle_grille()    
 tour = 0

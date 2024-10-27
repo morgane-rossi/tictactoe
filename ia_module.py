@@ -1,5 +1,5 @@
 #import time
-def ia(grille, signe):
+def ia(grille, signe, difficulte):
     #Donne l'illusion de réfléchir
     #time.sleep(3)
 
@@ -22,20 +22,16 @@ def ia(grille, signe):
     #Vérifie si 2 symboles sont aligné et joue le 3eme
     def choix_case_ia(coords_symbole):
         for x in range(len(solutions)):     #Prend la premiere solution:
-            #caseGagnantes = []
             compteur = 0                    #(reset le compteur avant chaque nouvelle solutions vérifié),
-            for y in coords_symbole:          #pour chaque coordonnée (d'un symbole dans la grille),
+            for y in coords_symbole:        #pour chaque coordonnée (d'un symbole dans la grille),
                 for z in solutions[x]:      #vérifie si ces coordonnées font partie de la solution.
                     if z == y:
-                        #caseGagnantes += [z] 
                         compteur += 1
-                    #if len(caseGagnantes) == 3:
                     if compteur == 2:       #Si les 2 coordonnes de la solution sont dans la grille, la 3eme coordonnée est gagnante!!
-                        #return caseGagnantes
                         coord_a_jouer = [z for z in solutions[x] if z not in coords_symbole]    #Cherche la case qui complete une ligne
-                        if not grille[coord_a_jouer[0][0]][coord_a_jouer[0][1]]: 
-                            case_a_jouer = coord_a_jouer[0][0] * 3 + coord_a_jouer[0][1]    #Convertit les coords en nombre case
-                            return case_a_jouer + 1
+                        if not grille[coord_a_jouer[0][0]][coord_a_jouer[0][1]]:                #Joue la case si cette case n'est pas occupé
+                            case_a_jouer = coord_a_jouer[0][0] * 3 + coord_a_jouer[0][1]    #(Convertit les coords en nombre case)
+                            return case_a_jouer + 1                                         
     
     def choix_simple():
     #choisi une case dans l'ordre (la premiere qui est disponible)
@@ -46,18 +42,21 @@ def ia(grille, signe):
                 continue
         return False
 
+    if difficulte == "Facile" or difficulte == "F" or difficulte == "f":
+        return choix_simple()
+    
+    if difficulte == "WarGames" or difficulte == "W" or difficulte == "w":
+        if not grille[1][1]:    #Joue la case du centre quoi qu'il arrive si elle n'est pas occupé (forcément au tour 1)
+            return 5            #A désactiver pour etre battable
+    
     case_choisi = choix_case_ia(coords_symbole_ia)
     if case_choisi == None:
         case_choisi = choix_case_ia(coords_symbole_joueur)
         if case_choisi == None:
             return choix_simple() 
     return case_choisi
+
     
-
-
-grille = [["O","X","O"],["","",""],["","X","O"]]
-symbole = "O"               
-print(ia(grille, symbole))
     
 """  
     #fallback
