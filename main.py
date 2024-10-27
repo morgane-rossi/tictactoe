@@ -99,7 +99,7 @@ def verifVainqueur(grille, tour, joueurs, joueur_actuel):
                     #return caseGagnantes
                     return "Gagné!"
 
-    #Egalité si le nombre de coup = 9 (de 0 à 8) Se déclenche aprñs une vérification (peut gagner au dernier tour)
+    #Egalité si le nombre de coup = 9 (de 0 à 8) Se déclenche apres une vérification (peut gagner au dernier tour)
     if tour == 8:
         return "Egalité!"
     else:
