@@ -32,9 +32,9 @@ def ia(grille, signe):
                     #if len(caseGagnantes) == 3:
                     if compteur == 2:       #Si les 2 coordonnes de la solution sont dans la grille, la 3eme coordonnée est gagnante!!
                         #return caseGagnantes
-                        coord_a_jouer = [z for z in solutions[x] if z not in coords_symbole]
-                        if not grille[z[0]][z[1]]: 
-                            case_a_jouer = coord_a_jouer[0][0] * 3 + coord_a_jouer[0][1]
+                        coord_a_jouer = [z for z in solutions[x] if z not in coords_symbole]    #Cherche la case qui complete une ligne
+                        if not grille[coord_a_jouer[0][0]][coord_a_jouer[0][1]]: 
+                            case_a_jouer = coord_a_jouer[0][0] * 3 + coord_a_jouer[0][1]    #Convertit les coords en nombre case
                             return case_a_jouer + 1
     
     def choix_simple():
