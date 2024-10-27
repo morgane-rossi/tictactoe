@@ -1,7 +1,7 @@
-#import time
+import time
+
 def ia(grille, signe, difficulte):
-    #Donne l'illusion de réfléchir
-    #time.sleep(3)
+
 
     #1ème ligne: Vertical, 2ème ligne: Horizontal, 3ème ligne: Diagonal (haut-gauche à bas-droite), 4ème ligne: Diagonal(haut-droite à bas-gauche)
     solutions = [[[0,0],[0,1],[0,2]],[[1,0],[1,1],[1,2]],[[2,0],[2,1],[2,2]],
@@ -43,14 +43,23 @@ def ia(grille, signe, difficulte):
         return False
 
     if difficulte == "Facile" or difficulte == "F" or difficulte == "f":
+        #Donne l'illusion de réfléchir
+        time.sleep(1)
         return choix_simple()
     
     if difficulte == "WarGames" or difficulte == "W" or difficulte == "w":  #A strange game. The only winning move is not to play.
+        #Donne l'illusion de réfléchir
+        time.sleep(3)
         if not grille[1][1]:    #Joue la case du centre quoi qu'il arrive si elle n'est pas occupé (forcément au tour 1)
-            return 5            
+            return 5
+        #Empeche une solution pour gagner si le bot ne peux rien contrer au tour 2
         if grille == [["O", "", ""],["", "X", ""],["", "", "X"]] or grille == [["X", "", ""],["", "O", ""],["", "", "O"]]:
-        #if grille[0][0] == signe and grille[] :
+        #if grille == [[signe, "", ""],["", True, ""],["", "", True]]:
             return 7
+
+    if difficulte == "Normal" or difficulte == "N" or difficulte == "n":
+        #Donne l'illusion de réfléchir
+        time.sleep(2)
 
     case_choisi = choix_case_ia(coords_symbole_ia)
     if case_choisi == None:
