@@ -1,6 +1,5 @@
 #Import pour le bot et les better graphics
 import ia_module as ia_mod
-import affichage_module as affichage_mod
 
 #[Morgane] Grille
 #Grille en 3x3, 2d (liste dans liste)
@@ -136,6 +135,7 @@ joueur_actuel = 1   # Détermine le joueur en cours (1er joueur = 0)
 grille = nouvelle_grille()    
 tour = 0
 
+#Boucle de tour
 while resultat == "Aucun":
     #Premier tour, on affiche la grille avec les valeurs
     if tour == 0:
@@ -155,8 +155,6 @@ while resultat == "Aucun":
     resultat = verifVainqueur(grille, tour, joueurs, joueur_actuel)
    
     affichage_grille(grille)
-    #affichage_mod.affichage_grille_tk(grille, joueurs, joueur_actuel)
-
 
 if resultat == "Gagné!":
     print(f"\nBravo {joueurs[joueur_actuel][0]}, vous avez Gagné!")
