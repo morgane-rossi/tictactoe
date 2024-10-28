@@ -1,5 +1,7 @@
 #Import pour le bot et les better graphics
 import ia_module as ia_mod
+#import affichage_module as affichage_mod
+
 
 #[Morgane] Grille
 #Grille en 3x3, 2d (liste dans liste)
