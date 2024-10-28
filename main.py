@@ -2,7 +2,6 @@
 import ia_module as ia_mod
 #import affichage_module as affichage_mod
 
-
 #[Morgane] Grille
 #Grille en 3x3, 2d (liste dans liste)
 def nouvelle_grille() :
