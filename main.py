@@ -14,27 +14,31 @@ def nouvelle_grille() :
 #[Moussa] Ajouter/saisir des joueurs
 def nom_joueurs():
     est_valide = False
-    while est_valide == False:  #On fait une boucle pour toujours demander la question, si l'utilisateur se trompe
+    #On fait une boucle pour toujours demander la question, si l'utilisateur se trompe
+    while est_valide == False:  
         nombre_joueurs = int(input("Combien de joueurs (1 ou 2) ? "))
 
         joueurs = []
         
-        if nombre_joueurs > 0 and nombre_joueurs < 3:               #Si la valeur est 1 ou 2,
-            for i in range(nombre_joueurs):                         #demander le nom de tout les joueurs (range(nombre_joueur) = autant de fois qu'il y a de joueurs)
+        if nombre_joueurs > 0 and nombre_joueurs < 3:   #Si la valeur est 1 ou 2,
+            #demander le nom de tout les joueurs
+            #(range(nombre_joueur) = autant de fois qu'il y a de joueurs)
+            for i in range(nombre_joueurs):     
                 nom = input(f"Entrez le nom du joueur {i+1} : ")    
                 
                 symbole = "" #["O", "X"]                            
-                while symbole != "O" and symbole != "X":                        #On demande aussi pour le symbole
+                while symbole != "O" and symbole != "X": #On demande aussi pour le symbole
                     symbole = (input(f"Choissisez un symbole (O ou X): "))
-                    if symbole != "O" and symbole != "X":                       #si le symbole n'est pas bon, on redemande
+                    if symbole != "O" and symbole != "X": #si le symbole n'est pas bon, on redemande
                         print("Symbole non disponible!")
                     if i != 0:
-                        if symbole == joueurs[i-1][1]:                          #ou alors si il est déjà pris par le joueur 1.
+                        if symbole == joueurs[i-1][1]: #ou alors si il est déjà pris par le joueur 1.
                             symbole = ""
                             print("Symbole déjà pris!")
                 
-                joueurs.append([nom, symbole])                  #Une fois qu'on a le nom et le symbole, on l'ajoute dans les joueurs
-                
+                #Une fois qu'on a le nom et le symbole, on l'ajoute dans les joueurs
+                joueurs.append([nom, symbole])
+
                 #Ajoute le bot si l'option "1 joueur" est sélectionné 
                 # (Oui, ca marche aussi si le joueur 2 rentre "Bot" en nom)
                 if nombre_joueurs == 1:
