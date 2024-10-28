@@ -8,7 +8,10 @@ Lancer le programme (main.py) et suivez les instructions!
 1 à 2 joueurs (1 joueur = vs bot)
 (1 - 9) pour choisir une case
 
-(Bot n'est pas trñs intelligeant)
+Bot a 3 difficultés:
+    Facile: Tres prévisible
+    Normal: Malin, mais peut etre battu
+    WarGames: A strange game. The only winning move is not to play.
 
 
 ### Credits

@@ -1,5 +1,7 @@
+#Import pour le bot et les better graphics
 import ia_module as ia_mod
-import affichage_module as affichage_mod
+#import affichage_module as affichage_mod
+
 
 #[Morgane] Grille
 #Grille en 3x3, 2d (liste dans liste)
@@ -13,7 +15,7 @@ def nouvelle_grille() :
 #[Moussa] Ajouter/saisir des joueurs
 def nom_joueurs():
     est_valide = False
-    while est_valide == False:
+    while est_valide == False:  #Pour toujours demander si l'input retourne une erreur
         nombre_joueurs = int(input("Combien de joueurs (1 ou 2) ? "))
 
         joueurs = []
@@ -34,6 +36,7 @@ def nom_joueurs():
                 
                 joueurs.append([nom, symbole])
                 
+                #Ajoute le bot si l'option "1 joueur" est sélectionné (Oui, ca marche aussi si le joueur 2 rentre "Bot" en nom)
                 if nombre_joueurs == 1:
                     if joueurs[0][1] == "O":
                         joueurs.append(["Bot", "X"])
@@ -46,17 +49,17 @@ def nom_joueurs():
             print("Nombre de joueurs non pris en charge")   
 
 def tour_suivant(joueurs, joueur_actuel):
-    joueur_actuel = (joueur_actuel + 1) % len(joueurs)  # Passer au joueur suivant
+    joueur_actuel = (joueur_actuel + 1) % len(joueurs)  # Passer au joueur suivant. Revient au joueur 1 avec le modulo si c'est le dernier joueur
 
     print(f"\n\nC'est au tour de {joueurs[joueur_actuel][0]} de jouer.")
     return joueur_actuel
 
-def choixCase(grille, joueurs, joueur_actuel):
+def choix_case(grille, joueurs, joueur_actuel):
     #Boucle pour demander l'input tant que le joueur ne choisi pas une case valide
     choix_valide = False
     while choix_valide == False:
         if joueurs[1][0] == "Bot" and joueur_actuel == 1:
-            return ia_mod.ia(grille, joueurs[1][1])
+            return ia_mod.ia(grille, joueurs[1][1], difficulte)
         else:
             choix = int(input('Choissisez une case: '))
         #Envoie une erreur si la case est invalide (non-occupé)
@@ -71,36 +74,36 @@ def choixCase(grille, joueurs, joueur_actuel):
 
 #resultat: pour connaitre l'issue de la partie. On peut afficher un message personalisé avec des valeurs différentes (while resultat == "Aucun" (ou "Partie en cours"))
 
-def verifVainqueur(grille, tour, joueurs, joueur_actuel):
+def verif_vainqueur(grille, tour, joueurs, joueur_actuel):
  
     #1ème ligne: Vertical, 2ème ligne: Horizontal, 3ème ligne: Diagonal (haut-gauche à bas-droite), 4ème ligne: Diagonal(haut-droite à bas-gauche)
     solutions = [[[0,0],[0,1],[0,2]],[[1,0],[1,1],[1,2]],[[2,0],[2,1],[2,2]],
     [[0,0],[1,0],[2,0]],[[0,1],[1,1],[2,1]],[[0,2],[1,2],[2,2]],
     [[0,0],[1,1],[2,2]],[[2,0],[1,1],[0,2]]]
     
-    valeur_teste = []
+    coords_symbole = []
 
-    #Ajoutes toutes les coordonnes des cases contenant le symbole du joueur et les met dans une liste (valeurTeste)
+    #Ajoutes toutes les coordonnes des cases contenant le symbole du joueur et les met dans une liste (coords_symbole)
     for x in range(len(grille)):
-        valeur_teste += [[x, y] for y in range(len(grille[x])) if grille[x][y] == joueurs[joueur_actuel][1]]
+        coords_symbole += [[x, y] for y in range(len(grille[x])) if grille[x][y] == joueurs[joueur_actuel][1]]
 
     #Vérifie les cases gagnantes avec les positions déjà existantes du symbole qui a été joué
     #Code en commentaire pour retourner la valeur des cases gagnantes au lieu de "Gagné" (pour les éclairer par exemple)
-    for x in range(len(solutions)):
+    for x in range(len(solutions)):     #Prend la premiere solution:
         #caseGagnantes = []
-        compteur = 0
-        for y in valeur_teste:
-            for z in solutions[x]:
+        compteur = 0                    #(reset le compteur avant chaque nouvelle solutions vérifié),
+        for y in coords_symbole:        #pour chaque coordonnée (d'un symbole dans la grille),
+            for z in solutions[x]:      #vérifie si ces coordonnées font partie de la solution.
                 if z == y:
                     #caseGagnantes += [z] 
                     compteur += 1
                 #if len(caseGagnantes) == 3:
-                if compteur == 3:
+                if compteur == 3:       #Si les 3 coordonnes de la solution sont dans la grille, c'est que 3 symboles sont alignés!
                     #return caseGagnantes
                     return "Gagné!"
 
-    #Egalité si le nombre de coup = 9 (de 0 à 8) Se déclenche aprñs une vérification (peut gagner au dernier tour)
-    if tour == 8:
+    #Egalité si le nombre de coup = 9 (de 0 à 8) Se déclenche apres une vérification (peut gagner au dernier tour)
+    if tour == 9:
         return "Egalité!"
     else:
         return "Aucun"
@@ -128,6 +131,8 @@ print("Bienvenue au Morpion!")
 #Variable Globale
 resultat = "Aucun"
 joueurs = nom_joueurs()
+if joueurs[1][0] == "Bot":
+    difficulte = input("Choissisez la difficulté: (F)acile, [defaut](N)ormal, (W)arGames. -> ")
 joueur_actuel = 1   # Détermine le joueur en cours (1er joueur = 0)
 grille = nouvelle_grille()    
 tour = 0
@@ -140,7 +145,7 @@ while resultat == "Aucun":
     tour += 1
 
     #Affiche une grille de présentation des numéro de case le 1er tour
-    choix = choixCase(grille, joueurs, joueur_actuel)
+    choix = choix_case(grille, joueurs, joueur_actuel)
     if choix == False:
         print("Erreur de sélection de case du bot!")
     
@@ -148,10 +153,9 @@ while resultat == "Aucun":
     #ex: 1 // 3 = 0, 1 % 3 = 1 => 0, 1
     grille[(choix - 1) // 3][(choix - 1) % 3] = joueurs[joueur_actuel][1]
    
-    resultat = verifVainqueur(grille, tour, joueurs, joueur_actuel)
+    resultat = verif_vainqueur(grille, tour, joueurs, joueur_actuel)
    
     affichage_grille(grille)
-    #affichage_mod.affichage_grille_tk(grille, joueurs, joueur_actuel)
 
 
 if resultat == "Gagné!":
