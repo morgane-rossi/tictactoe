@@ -52,7 +52,10 @@ def ia(grille, signe, difficulte):
         time.sleep(3)
         if not grille[1][1]:    #Joue la case du centre quoi qu'il arrive si elle n'est pas occupé (forcément au tour 1)
             return 5
-        #Empeche une solution pour gagner si le bot ne peux rien contrer au tour 2
+         #Empeche une solution pour gagner au tour 2
+        if grille == [["", "", "O"],["", "X", ""],["O", "", ""]] or grille == [["", "", "X"],["", "O", ""],["X", "", ""]]:
+            return 6
+        #Empeche une solution pour gagner au tour 2
         if grille == [["O", "", ""],["", "X", ""],["", "", "X"]] or grille == [["X", "", ""],["", "O", ""],["", "", "O"]]:
         #if grille == [[signe, "", ""],["", True, ""],["", "", True]]:
             return 7
