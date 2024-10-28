@@ -35,7 +35,8 @@ def nom_joueurs():
                 
                 joueurs.append([nom, symbole])
                 
-                #Ajoute le bot si l'option "1 joueur" est sélectionné (Oui, ca marche aussi si le joueur 2 rentre "Bot" en nom)
+                #Ajoute le bot si l'option "1 joueur" est sélectionné 
+                # (Oui, ca marche aussi si le joueur 2 rentre "Bot" en nom)
                 if nombre_joueurs == 1:
                     if joueurs[0][1] == "O":
                         joueurs.append(["Bot", "X"])
@@ -48,7 +49,8 @@ def nom_joueurs():
             print("Nombre de joueurs non pris en charge")   
 
 def tour_suivant(joueurs, joueur_actuel):
-    joueur_actuel = (joueur_actuel + 1) % len(joueurs)  # Passer au joueur suivant. Revient au joueur 1 avec le modulo si c'est le dernier joueur
+    joueur_actuel = (joueur_actuel + 1) % len(joueurs)  # Passer au joueur suivant. 
+    # Revient au joueur 1 avec le modulo si c'est le dernier joueur
 
     print(f"\n\nC'est au tour de {joueurs[joueur_actuel][0]} de jouer.")
     return joueur_actuel
@@ -71,37 +73,47 @@ def choix_case(grille, joueurs, joueur_actuel):
       
 #[Jeremy] Vérification de fin de partie
 
-#resultat: pour connaitre l'issue de la partie. On peut afficher un message personalisé avec des valeurs différentes (while resultat == "Aucun" (ou "Partie en cours"))
+#resultat: pour connaitre l'issue de la partie. 
+# On peut afficher un message personalisé avec des valeurs différentes 
+# (while resultat == "Aucun" (ou "Partie en cours"))
 
 def verif_vainqueur(grille, tour, joueurs, joueur_actuel):
  
-    #1ème ligne: Vertical, 2ème ligne: Horizontal, 3ème ligne: Diagonal (haut-gauche à bas-droite), 4ème ligne: Diagonal(haut-droite à bas-gauche)
+    #1ème ligne: Vertical, 2ème ligne: Horizontal, 3ème ligne: 
+    # Diagonal (haut-gauche à bas-droite), 
+    # 4ème ligne: Diagonal(haut-droite à bas-gauche)
     solutions = [[[0,0],[0,1],[0,2]],[[1,0],[1,1],[1,2]],[[2,0],[2,1],[2,2]],
     [[0,0],[1,0],[2,0]],[[0,1],[1,1],[2,1]],[[0,2],[1,2],[2,2]],
     [[0,0],[1,1],[2,2]],[[2,0],[1,1],[0,2]]]
     
     coords_symbole = []
 
-    #Ajoutes toutes les coordonnes des cases contenant le symbole du joueur et les met dans une liste (coords_symbole)
+    #Ajoutes toutes les coordonnes des cases contenant le symbole du joueur 
+    # et les met dans une liste (coords_symbole)
     for x in range(len(grille)):
         coords_symbole += [[x, y] for y in range(len(grille[x])) if grille[x][y] == joueurs[joueur_actuel][1]]
 
-    #Vérifie les cases gagnantes avec les positions déjà existantes du symbole qui a été joué
-    #Code en commentaire pour retourner la valeur des cases gagnantes au lieu de "Gagné" (pour les éclairer par exemple)
+    #Vérifie les cases gagnantes avec les positions déjà existantes 
+    # du symbole qui a été joué
+    #Code en commentaire pour retourner la valeur des cases gagnantes 
+    # au lieu de "Gagné" (pour les éclairer par exemple)
     for x in range(len(solutions)):     #Prend la premiere solution:
         #caseGagnantes = []
-        compteur = 0                    #(reset le compteur avant chaque nouvelle solutions vérifié),
+        compteur = 0                    #(reset le compteur avant chaque 
+                                        # nouvelle solutions vérifié),
         for y in coords_symbole:        #pour chaque coordonnée (d'un symbole dans la grille),
             for z in solutions[x]:      #vérifie si ces coordonnées font partie de la solution.
                 if z == y:
                     #caseGagnantes += [z] 
                     compteur += 1
                 #if len(caseGagnantes) == 3:
-                if compteur == 3:       #Si les 3 coordonnes de la solution sont dans la grille, c'est que 3 symboles sont alignés!
+                if compteur == 3:       #Si les 3 coordonnes de la solution sont dans la grille, 
+                                        # c'est que 3 symboles sont alignés!
                     #return caseGagnantes
                     return "Gagné!"
 
-    #Egalité si le nombre de coup = 9 (de 0 à 8) Se déclenche apres une vérification (peut gagner au dernier tour)
+    #Egalité si le nombre de coup = 9 (de 0 à 8) 
+    # Se déclenche apres une vérification (peut gagner au dernier tour)
     if tour == 9:
         return "Egalité!"
     else:
@@ -116,6 +128,8 @@ def affichage_grille(grille):
             else:
                 print(grille[x][y], end = "")
             #Evite une ligne verticale en trop
+            # % 3 équivalent à  if(x) < 3
+            # on crée  une sorte d'exception quand le modulo est égal à 2
             if y % 3 != 2:
                 print(" | ", end = "")
         #Evite une ligne horizontale en trop
