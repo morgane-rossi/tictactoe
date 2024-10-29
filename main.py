@@ -21,7 +21,7 @@ def nom_joueurs():
         joueurs = []
         
         if nombre_joueurs > 0 and nombre_joueurs < 3:
-            for i in range(nombre_joueurs): 
+            for i in range(nombre_joueurs):
                 nom = input(f"Entrez le nom du joueur {i+1} : ")
                 symbole = "" #["O", "X"] 
                 
