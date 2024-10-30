@@ -2,9 +2,9 @@ import tkinter as tk
 from tkinter import ttk
 #import main
 
-class affichage_grille_tk():
+class affichage_grille_tk(Frame):
     def __init__(self, grille, joueurs, joueur_actuel):
-        self.fenetre = tk.Tk()
+        Frame.__init__()
         self.fenetre.title("Morpion")
         self.fenetre.geometry("600x600")
 
@@ -128,4 +128,8 @@ else:
 
 
 
-affichage_grille_tk(grille, joueurs, joueur_actuel)
+
+if __name__ == "__main__":
+    app = affichage_grille_tk(root)
+    app.pack()
+    root.mainloop()
